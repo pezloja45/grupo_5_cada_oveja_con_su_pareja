@@ -44,7 +44,16 @@ public class CadaOvejaConSuPareja {
 		for (int i = 0; i < tablero.length; i++) {
 			System.out.println(Arrays.toString(tablero[i]));
 		}
-		
+
+		System.out.println("Introduce la columna de la carta 1 a emparejar");
+		int columnaCarta1 = sc.nextInt();
+		System.out.println("Introduce la fila de la carta 1 a emparejar");
+		int filaCarta1 = sc.nextInt();
+		System.out.println("Introduce la columna de la carta 2 a emparejar");
+		int columnaCarta2 = sc.nextInt();
+		System.out.println("Introduce la fila de la carta 2 a emparejar");
+		int filaCarta2 = sc.nextInt();
+
 		sc.close();
 	}
 }
