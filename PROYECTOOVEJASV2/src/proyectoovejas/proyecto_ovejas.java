@@ -34,20 +34,24 @@ public class proyecto_ovejas {
 		System.out.println("Matriz mezclada:");
 		mezclarMatriz(matriz);
 		imprimirMatriz(matriz);
-		limpiaPantalla();
-		do {
-			System.out.println("Introduce la columna de la carta 1 a emparejar");
-			int columnaCarta1 = sc.nextInt();
-			System.out.println("Introduce la fila de la carta 1 a emparejar");
-			int filaCarta1 = sc.nextInt();
-			System.out.println("Introduce la columna de la carta 2 a emparejar");
-			int columnaCarta2 = sc.nextInt();
-			System.out.println("Introduce la fila de la carta 2 a emparejar") ;
-			int filaCarta2 = sc.nextInt();
-			//mas adelante dentro de el while va el metodo que condiciona las veces que se repite (metodo para saber si has ganado)
-			
-			comprobarCartas(columnaCarta1, columnaCarta2, filaCarta1, filaCarta2, matriz);
-		} while ();
+		//limpiaPantalla();
+		
+		System.out.println("Introduce la columna de la carta 1 a emparejar");
+		int columnaCarta1 = sc.nextInt();
+		System.out.println("Introduce la fila de la carta 1 a emparejar");
+		int filaCarta1 = sc.nextInt();
+		System.out.println("Introduce la columna de la carta 2 a emparejar");
+		int columnaCarta2 = sc.nextInt();
+		System.out.println("Introduce la fila de la carta 2 a emparejar") ;
+		int filaCarta2 = sc.nextInt();
+		//mas adelante dentro de el while va el metodo que condiciona las veces que se repite (metodo para saber si has ganado)
+		
+		if (comprobarCartas(columnaCarta1, columnaCarta2, filaCarta1, filaCarta2, matriz) == true) {
+			matriz[filaCarta1][columnaCarta1] = ' ';
+			matriz[filaCarta2][columnaCarta2] = ' ';
+		}
+		
+		imprimirMatriz(matriz);
 		
 	}
 
