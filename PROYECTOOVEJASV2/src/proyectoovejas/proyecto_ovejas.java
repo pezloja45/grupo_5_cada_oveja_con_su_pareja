@@ -10,7 +10,7 @@ public class proyecto_ovejas {
 	public static void main(String[] args) {
 		var sc = new Scanner(System.in);
 
-		System.out.println("Introduzca la dificultad (2,4,6)");
+		System.out.println("Introduzca la dificultad (2, 4, 6)");
 		int dificultad = sc.nextInt();
 		
 		//Este metodo valida si la dificultad introducida por el usuario es valida y si no pide otra
@@ -19,6 +19,11 @@ public class proyecto_ovejas {
 			dificultad = sc.nextInt();
 		}
 		char[][] tablaResuelta = new char [dificultad][dificultad];
+		for (int i = 0; i < tablaResuelta.length; i++) {
+			for (int k = 0; k < tablaResuelta.length; k++) {
+				tablaResuelta[i][k] = 'z';
+			}
+		}
 		char[][] matriz = new char[dificultad][dificultad];
 		//Este bucle asigna valores unicos por parejas a la matriz
 		for (int i = 0; i < dificultad; i++) {
@@ -42,18 +47,13 @@ public class proyecto_ovejas {
 		int filaCarta2 = sc.nextInt();
 		System.out.println("Introduce la columna de la carta 2 a emparejar");
 		int columnaCarta2 = sc.nextInt();
-		for (int i = 0; i < tablaResuelta.length; i++) {
-			for (int k = 0; k < tablaResuelta.length; k++) {
-				tablaResuelta[i][k] = 'z';
-			}
-		}
 		if (comprobarCartas(columnaCarta1, columnaCarta2, filaCarta1, filaCarta2, matriz) == true) {
 			tablaResuelta[filaCarta1][columnaCarta1] = matriz[filaCarta1][columnaCarta1];
 			tablaResuelta[filaCarta2][columnaCarta2] = matriz[filaCarta2][columnaCarta2];
+			imprimirMatriz(tablaResuelta);
+		} else {
+			System.out.println("No son pareja");
 		}
-		
-		imprimirMatriz(matriz);
-		imprimirMatriz(tablaResuelta);
 		
 	}
 
@@ -128,5 +128,4 @@ public class proyecto_ovejas {
 		return dificultad == 2 || dificultad == 4 || dificultad == 6;
 	}
 
-	
 }
