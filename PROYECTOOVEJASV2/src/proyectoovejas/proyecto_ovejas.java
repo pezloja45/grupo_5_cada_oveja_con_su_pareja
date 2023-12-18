@@ -13,14 +13,12 @@ public class proyecto_ovejas {
 		System.out.println("Introduzca la dificultad (2,4,6)");
 		int dificultad = sc.nextInt();
 		
-
-		
 		//Este metodo valida si la dificultad introducida por el usuario es valida y si no pide otra
 		while (selectorDificultad(dificultad) == false) {
 			System.out.println("Dificultad no válida seleccione un valor válido (2, 4, 6)");
 			dificultad = sc.nextInt();
 		}
-
+		char[][] tablaResuelta = new char [dificultad][dificultad];
 		char[][] matriz = new char[dificultad][dificultad];
 		//Este bucle asigna valores unicos por parejas a la matriz
 		for (int i = 0; i < dificultad; i++) {
@@ -36,22 +34,26 @@ public class proyecto_ovejas {
 		imprimirMatriz(matriz);
 		//limpiaPantalla();
 		
-		System.out.println("Introduce la columna de la carta 1 a emparejar");
-		int columnaCarta1 = sc.nextInt();
 		System.out.println("Introduce la fila de la carta 1 a emparejar");
 		int filaCarta1 = sc.nextInt();
-		System.out.println("Introduce la columna de la carta 2 a emparejar");
-		int columnaCarta2 = sc.nextInt();
+		System.out.println("Introduce la columna de la carta 1 a emparejar");
+		int columnaCarta1 = sc.nextInt();
 		System.out.println("Introduce la fila de la carta 2 a emparejar") ;
 		int filaCarta2 = sc.nextInt();
-		//mas adelante dentro de el while va el metodo que condiciona las veces que se repite (metodo para saber si has ganado)
-		
+		System.out.println("Introduce la columna de la carta 2 a emparejar");
+		int columnaCarta2 = sc.nextInt();
+		for (int i = 0; i < tablaResuelta.length; i++) {
+			for (int k = 0; k < tablaResuelta.length; k++) {
+				tablaResuelta[i][k] = 'z';
+			}
+		}
 		if (comprobarCartas(columnaCarta1, columnaCarta2, filaCarta1, filaCarta2, matriz) == true) {
-			matriz[filaCarta1][columnaCarta1] = ' ';
-			matriz[filaCarta2][columnaCarta2] = ' ';
+			tablaResuelta[filaCarta1][columnaCarta1] = matriz[filaCarta1][columnaCarta1];
+			tablaResuelta[filaCarta2][columnaCarta2] = matriz[filaCarta2][columnaCarta2];
 		}
 		
 		imprimirMatriz(matriz);
+		imprimirMatriz(tablaResuelta);
 		
 	}
 
