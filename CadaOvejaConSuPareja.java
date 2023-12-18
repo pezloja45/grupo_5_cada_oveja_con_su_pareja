@@ -44,7 +44,10 @@ public class CadaOvejaConSuPareja {
 		for (int i = 0; i < tablero.length; i++) {
 			System.out.println(Arrays.toString(tablero[i]));
 		}
-
+		buscarCarta();
+		sc.close();
+	}
+	public static void buscarCarta () {
 		System.out.println("Introduce la columna de la carta 1 a emparejar");
 		int columnaCarta1 = sc.nextInt();
 		System.out.println("Introduce la fila de la carta 1 a emparejar");
@@ -53,7 +56,10 @@ public class CadaOvejaConSuPareja {
 		int columnaCarta2 = sc.nextInt();
 		System.out.println("Introduce la fila de la carta 2 a emparejar");
 		int filaCarta2 = sc.nextInt();
+		if (columnaCarta1 < 0 || columnaCarta1 > dificultad && columnaCarta2 < 0 || columnaCarta2 > dificultad && filaCarta1 < 0 || filaCarta1 > dificultad && filaCarta2 < 0 || filaCarta2 > dificultad) {
+			System.out.println("La carta introducida no existe");
+		} else {
 
-		sc.close();
+		}
 	}
 }
