@@ -29,3 +29,5 @@ _7- Al ganar preguntar si quieres repetir el juego._
 
 ## Cambios:
 _añadido el paso 1 y el paso 2 de las funcionalidades, con su correspondiente comprobacion de errores y en las funciones necesarias_
+_añadidos los pasos para comprobar la igualdad de los indices introducidos por el usuario_
+_terminado la condicional de igualdades entre numeros y sus correspondientes funcionalidades_
