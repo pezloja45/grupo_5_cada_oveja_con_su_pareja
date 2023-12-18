@@ -26,3 +26,6 @@ _7- Al ganar preguntar si quieres repetir el juego._
 
 ## Posibles mejoras:
 **Añadir 3 dificultades (facil, normal o dificil).**
+
+## Cambios:
+_añadido el paso 1 y el paso 2 de las funcionalidades, con su correspondiente comprobacion de errores y en las funciones necesarias_
