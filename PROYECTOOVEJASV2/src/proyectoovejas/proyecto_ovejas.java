@@ -45,6 +45,8 @@ public class proyecto_ovejas {
 			System.out.println("Introduce la fila de la carta 2 a emparejar") ;
 			int filaCarta2 = sc.nextInt();
 			//mas adelante dentro de el while va el metodo que condiciona las veces que se repite (metodo para saber si has ganado)
+			
+			comprobarCartas(columnaCarta1, columnaCarta2, filaCarta1, filaCarta2, matriz);
 		} while ();
 		
 	}
@@ -109,6 +111,10 @@ public class proyecto_ovejas {
 			}
 			System.out.println();
 		}
+	}
+	
+	public static boolean comprobarCartas(int columnaCarta1, int columnaCarta2, int filaCarta1, int filaCarta2, char[][] matriz) {
+		return matriz[filaCarta1][columnaCarta1] == matriz[filaCarta2][columnaCarta2];
 	}
 	
 	//Este metodo retorna true si el numero que le pides al usuario es 2, 4 o 6
