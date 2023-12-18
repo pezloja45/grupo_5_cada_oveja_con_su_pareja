@@ -9,7 +9,7 @@ public class proyecto_ovejas {
 
 	public static void main(String[] args) {
 		var sc = new Scanner(System.in);
-
+		do {
 		System.out.println("Introduzca la dificultad (2, 4, 6)");
 		int dificultad = sc.nextInt();
 		
@@ -39,6 +39,7 @@ public class proyecto_ovejas {
 		imprimirMatriz(matriz);
 		//limpiaPantalla();
 		
+		do {
 		System.out.println("Introduce la fila de la carta 1 a emparejar");
 		int filaCarta1 = sc.nextInt();
 		System.out.println("Introduce la columna de la carta 1 a emparejar");
@@ -53,8 +54,12 @@ public class proyecto_ovejas {
 			imprimirMatriz(tablaResuelta);
 		} else {
 			System.out.println("No son pareja");
+			
 		}
+		}while(comprobadorValores(tablaResuelta)==true);
 		
+		
+		}while(siguePrograma()==true);
 	}
 
 	public static void mezclarMatriz(char[][] matriz) {
@@ -127,5 +132,22 @@ public class proyecto_ovejas {
 	public static boolean selectorDificultad(int dificultad) {
 		return dificultad == 2 || dificultad == 4 || dificultad == 6;
 	}
+	public static boolean comprobadorValores(char[][] tablaResuelta) {
+	    for (int i = 0; i < tablaResuelta.length; i++) {
+	        for (int j = 0; j < tablaResuelta[i].length; j++) {
+	            if (tablaResuelta[i][j] == 'z') {
+	                return true; 
+	            }
+	        }
+	    }
+	    return false;
+	}
+	public static boolean siguePrograma() {
+		var sc=new Scanner(System.in);
+		System.out.println("Ganaste, introduzca 1 si desea repetir el programa o otro numero si desea cerrarlo.");
+		int decisionUsuario=sc.nextInt();
+		return decisionUsuario==1;
+	}
+
 
 }
