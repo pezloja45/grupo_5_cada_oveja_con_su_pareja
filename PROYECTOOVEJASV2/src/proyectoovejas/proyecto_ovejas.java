@@ -35,7 +35,17 @@ public class proyecto_ovejas {
 		mezclarMatriz(matriz);
 		imprimirMatriz(matriz);
 		limpiaPantalla();
-
+		do {
+			System.out.println("Introduce la columna de la carta 1 a emparejar");
+			int columnaCarta1 = sc.nextInt();
+			System.out.println("Introduce la fila de la carta 1 a emparejar");
+			int filaCarta1 = sc.nextInt();
+			System.out.println("Introduce la columna de la carta 2 a emparejar");
+			int columnaCarta2 = sc.nextInt();
+			System.out.println("Introduce la fila de la carta 2 a emparejar") ;
+			int filaCarta2 = sc.nextInt();
+			//mas adelante dentro de el while va el metodo que condiciona las veces que se repite (metodo para saber si has ganado)
+		} while ();
 		
 	}
 
@@ -75,6 +85,7 @@ public class proyecto_ovejas {
 	}
 
 	// Este metodo limpia la pantalla a base de lineas vacías con un bucle for
+	// el metodo ha sido buscado por internet debido al desconocimiento de esta funcion
 	public static void limpiaPantalla() {
 		Timer timer = new Timer();
 
@@ -99,6 +110,7 @@ public class proyecto_ovejas {
 			System.out.println();
 		}
 	}
+	
 	//Este metodo retorna true si el numero que le pides al usuario es 2, 4 o 6
 	public static boolean selectorDificultad(int dificultad) {
 		return dificultad == 2 || dificultad == 4 || dificultad == 6;
