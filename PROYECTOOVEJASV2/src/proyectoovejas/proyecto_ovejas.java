@@ -40,7 +40,7 @@ public class proyecto_ovejas {
 
 			System.out.println("Tablero:");
 			mezclarMatriz(matriz);
-			imprimirMatriz(matriz);
+			imprimirMatriz(matriz, valorNull);
 			limpiaPantalla();
 
 			do {
@@ -68,7 +68,7 @@ public class proyecto_ovejas {
 					if (comprobarCartas(columnaCarta1, columnaCarta2, filaCarta1, filaCarta2, matriz) == true) {
 						tablaResuelta[filaCarta1][columnaCarta1] = matriz[filaCarta1][columnaCarta1];
 						tablaResuelta[filaCarta2][columnaCarta2] = matriz[filaCarta2][columnaCarta2];
-						imprimirMatriz(tablaResuelta);
+						imprimirMatriz(tablaResuelta, valorNull);
 					} else {
 						System.out.println(ANSI_RED + "No son pareja" + ANSI_RESET);
 					}
@@ -133,11 +133,15 @@ public class proyecto_ovejas {
 	}
 
 	// Este método imprime la matriz de forma bonita
-	public static void imprimirMatriz(char[][] matriz) {
+	public static void imprimirMatriz(char[][] matriz, char valorNull) {
 		System.out.println();
 		for (int i = 0; i < matriz.length; i++) {
 			for (int j = 0; j < matriz[i].length; j++) {
-				System.out.print("\t" + matriz[i][j]);
+				if (matriz[i][j] == valorNull) {
+					System.out.print("\t" + ANSI_BLUE + matriz[i][j] + ANSI_RESET);
+				} else {
+					System.out.print("\t" + ANSI_GREEN + matriz[i][j] + ANSI_RESET);
+				}
 			}
 			System.out.println();
 		}
