@@ -24,10 +24,19 @@ _6- En caso de terminar, dar un mensaje de VICTORIA._
 
 _7- Al ganar preguntar si quieres repetir el juego._
 
-## Posibles mejoras:
-**Añadir 3 dificultades (facil, normal o dificil).**
-
 ## Cambios:
-_añadido el paso 1 y el paso 2 de las funcionalidades, con su correspondiente comprobacion de errores y en las funciones necesarias_
-_añadidos los pasos para comprobar la igualdad de los indices introducidos por el usuario_
-_terminado la condicional de igualdades entre numeros y sus correspondientes funcionalidades_
+_- Añadido el paso 1 y el paso 2 de las funcionalidades, con su correspondiente comprobacion de errores y en las funciones necesarias._
+
+_- Añadidos los pasos para comprobar la igualdad de los indices introducidos por el usuario._
+
+_- Terminado la condicional de igualdades entre numeros y sus correspondientes funcionalidades._
+
+_- Añadido un metodo comprobador de valores para salida de bucle y una funcionalidad para repetir el programa._
+
+_- Añadido comprobacion de indices._
+
+_- Corrección de errores de funcionalidad del codigo._
+
+_- Comendarios añadidos._
+
+_- Tabulaciones y colores en la consola añadidos._
