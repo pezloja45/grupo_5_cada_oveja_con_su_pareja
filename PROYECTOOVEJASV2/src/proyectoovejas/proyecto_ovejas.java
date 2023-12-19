@@ -18,12 +18,14 @@ public class proyecto_ovejas {
 			System.out.println("Dificultad no válida seleccione un valor válido (2, 4, 6)");
 			dificultad = sc.nextInt();
 		}
+		
 		char[][] tablaResuelta = new char [dificultad][dificultad];
 		for (int i = 0; i < tablaResuelta.length; i++) {
 			for (int k = 0; k < tablaResuelta.length; k++) {
 				tablaResuelta[i][k] = 'z';
 			}
 		}
+		
 		char[][] matriz = new char[dificultad][dificultad];
 		//Este bucle asigna valores unicos por parejas a la matriz
 		for (int i = 0; i < dificultad; i++) {
@@ -37,29 +39,33 @@ public class proyecto_ovejas {
 		System.out.println("Matriz mezclada:");
 		mezclarMatriz(matriz);
 		imprimirMatriz(matriz);
-		//limpiaPantalla();
+		limpiaPantalla();
 		
 		do {
 		System.out.println("Introduce la fila de la carta 1 a emparejar");
 		int filaCarta1 = sc.nextInt();
+		
 		System.out.println("Introduce la columna de la carta 1 a emparejar");
 		int columnaCarta1 = sc.nextInt();
+		
 		System.out.println("Introduce la fila de la carta 2 a emparejar") ;
 		int filaCarta2 = sc.nextInt();
+		
 		System.out.println("Introduce la columna de la carta 2 a emparejar");
 		int columnaCarta2 = sc.nextInt();
+		
 		if (comprobarCartas(columnaCarta1, columnaCarta2, filaCarta1, filaCarta2, matriz) == true) {
 			tablaResuelta[filaCarta1][columnaCarta1] = matriz[filaCarta1][columnaCarta1];
 			tablaResuelta[filaCarta2][columnaCarta2] = matriz[filaCarta2][columnaCarta2];
 			imprimirMatriz(tablaResuelta);
 		} else {
-			System.out.println("No son pareja");
-			
+			System.out.println("No son pareja");	
 		}
+		
 		}while(comprobadorValores(tablaResuelta)==true);
 		
-		
 		}while(siguePrograma()==true);
+		
 	}
 
 	public static void mezclarMatriz(char[][] matriz) {
@@ -76,6 +82,7 @@ public class proyecto_ovejas {
 			}
 		}
 	}
+	
 	//Este metodo genera un caracter aleatorio de la a hasta 
 	public static char generarCaracterUnico(char[][] matriz) {
 		Random random = new Random();
@@ -85,6 +92,7 @@ public class proyecto_ovejas {
 		} while (existeCaracterEnMatriz(matriz, caracter));
 		return caracter;
 	}
+	
 	//Este metodo comprueba que el caracter generado en el metodo generarCaracter no existe en la matriz
 	public static boolean existeCaracterEnMatriz(char[][] matriz, char caracter) {
 		for (int i = 0; i < matriz.length; i++) {
@@ -114,14 +122,17 @@ public class proyecto_ovejas {
 
 		timer.schedule(tarea, 3000);
 	}
+	
 	// Este metodo imprime la matriz de una forma bonita
 	public static void imprimirMatriz(char[][] matriz) {
+		System.out.println();
 		for (int i = 0; i < matriz.length; i++) {
 			for (int j = 0; j < matriz[i].length; j++) {
-				System.out.print(matriz[i][j]);
+				System.out.print("\t" + matriz[i][j]);
 			}
 			System.out.println();
 		}
+		System.out.println();
 	}
 	
 	public static boolean comprobarCartas(int columnaCarta1, int columnaCarta2, int filaCarta1, int filaCarta2, char[][] matriz) {
@@ -132,6 +143,7 @@ public class proyecto_ovejas {
 	public static boolean selectorDificultad(int dificultad) {
 		return dificultad == 2 || dificultad == 4 || dificultad == 6;
 	}
+	
 	public static boolean comprobadorValores(char[][] tablaResuelta) {
 	    for (int i = 0; i < tablaResuelta.length; i++) {
 	        for (int j = 0; j < tablaResuelta[i].length; j++) {
@@ -142,10 +154,13 @@ public class proyecto_ovejas {
 	    }
 	    return false;
 	}
+	
 	public static boolean siguePrograma() {
 		var sc=new Scanner(System.in);
+		
 		System.out.println("Ganaste, introduzca 1 si desea repetir el programa o otro numero si desea cerrarlo.");
 		int decisionUsuario=sc.nextInt();
+		
 		return decisionUsuario==1;
 	}
 
