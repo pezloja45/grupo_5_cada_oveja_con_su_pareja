@@ -12,11 +12,11 @@ public class proyecto_ovejas {
 		final char valorNull = '▬';
 		
 		do {
-			System.out.println("Introduzca la dificultad (2, 4, 6)");
+			System.out.println("Introduzca la dificultad (2, 4, 6).");
 			int dificultad = sc.nextInt();
 
 			while (selectorDificultad(dificultad) == false) {
-				System.out.println("Dificultad no válida seleccione un valor válido (2, 4, 6)");
+				System.out.println("Dificultad no válida, seleccione un valor válido (2, 4, 6).");
 				dificultad = sc.nextInt();
 			}
 
@@ -45,16 +45,16 @@ public class proyecto_ovejas {
 
 			do {
 
-				System.out.println("Introduce la fila de la carta 1 a emparejar");
+				System.out.println("Introduce la fila de la carta 1 a emparejar.");
 				int filaCarta1 = sc.nextInt();
 
-				System.out.println("Introduce la columna de la carta 1 a emparejar");
+				System.out.println("Introduce la columna de la carta 1 a emparejar.");
 				int columnaCarta1 = sc.nextInt();
 
-				System.out.println("Introduce la fila de la carta 2 a emparejar");
+				System.out.println("Introduce la fila de la carta 2 a emparejar.");
 				int filaCarta2 = sc.nextInt();
 
-				System.out.println("Introduce la columna de la carta 2 a emparejar");
+				System.out.println("Introduce la columna de la carta 2 a emparejar.");
 				int columnaCarta2 = sc.nextInt();
 
 				if (((filaCarta1 < 0 || filaCarta1 >= dificultad) || (filaCarta2 < 0 || filaCarta2 >= dificultad)
@@ -62,7 +62,7 @@ public class proyecto_ovejas {
 						|| (columnaCarta2 < 0 || columnaCarta2 >= dificultad))
 						|| ((columnaCarta1 == columnaCarta2) && (filaCarta1 == filaCarta2))) {
 
-					System.out.println(ROJO + "Las parejas introducidas no existen o son igaules" + RESET);
+					System.out.println(ROJO + "Las cartas introducidas no existen o son iguales." + RESET);
 
 				} else {
 					if (comprobarCartas(columnaCarta1, columnaCarta2, filaCarta1, filaCarta2, matriz) == true) {
@@ -70,7 +70,7 @@ public class proyecto_ovejas {
 						tablaResuelta[filaCarta2][columnaCarta2] = matriz[filaCarta2][columnaCarta2];
 						imprimirMatriz(tablaResuelta, valorNull);
 					} else {
-						System.out.println(ROJO + "No son pareja" + RESET);
+						System.out.println(ROJO + "Las cartas introducidas no son pareja." + RESET);
 					}
 				}
 
@@ -174,7 +174,7 @@ public class proyecto_ovejas {
 	public static boolean siguePrograma() {
 		var sc = new Scanner(System.in);
 
-		System.out.println(VERDE + "Ganaste, introduzca 1 si desea repetir el programa o otro numero si desea cerrarlo." + RESET);
+		System.out.println(VERDE + "Ganaste. Introduzca 1 si desea repetir el programa u otro número si desea cerrarlo." + RESET);
 		int decisionUsuario = sc.nextInt();
 
 		return decisionUsuario == 1;
