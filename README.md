@@ -37,6 +37,8 @@ _- Añadido comprobacion de indices._
 
 _- Corrección de errores de funcionalidad del codigo._
 
+_- Faltas de ortografía del programa resueltas._
+
 _- Comendarios añadidos._
 
 _- Tabulaciones y colores en la consola añadidos._
