@@ -62,7 +62,7 @@ public class proyecto_ovejas {
 						|| (columnaCarta2 < 0 || columnaCarta2 >= dificultad))
 						|| ((columnaCarta1 == columnaCarta2) && (filaCarta1 == filaCarta2))) {
 
-					System.out.println(ANSI_RED + "Las parejas introducidas no existen o son igaules" + ANSI_RESET);
+					System.out.println(ROJO + "Las parejas introducidas no existen o son igaules" + RESET);
 
 				} else {
 					if (comprobarCartas(columnaCarta1, columnaCarta2, filaCarta1, filaCarta2, matriz) == true) {
@@ -70,7 +70,7 @@ public class proyecto_ovejas {
 						tablaResuelta[filaCarta2][columnaCarta2] = matriz[filaCarta2][columnaCarta2];
 						imprimirMatriz(tablaResuelta, valorNull);
 					} else {
-						System.out.println(ANSI_RED + "No son pareja" + ANSI_RESET);
+						System.out.println(ROJO + "No son pareja" + RESET);
 					}
 				}
 
@@ -138,9 +138,9 @@ public class proyecto_ovejas {
 		for (int i = 0; i < matriz.length; i++) {
 			for (int j = 0; j < matriz[i].length; j++) {
 				if (matriz[i][j] == valorNull) {
-					System.out.print("\t" + ANSI_BLUE + matriz[i][j] + ANSI_RESET);
+					System.out.print("\t" + AZUL + matriz[i][j] + RESET);
 				} else {
-					System.out.print("\t" + ANSI_GREEN + matriz[i][j] + ANSI_RESET);
+					System.out.print("\t" + VERDE + matriz[i][j] + RESET);
 				}
 			}
 			System.out.println();
@@ -174,16 +174,16 @@ public class proyecto_ovejas {
 	public static boolean siguePrograma() {
 		var sc = new Scanner(System.in);
 
-		System.out.println(ANSI_GREEN + "Ganaste, introduzca 1 si desea repetir el programa o otro numero si desea cerrarlo." + ANSI_RESET);
+		System.out.println(VERDE + "Ganaste, introduzca 1 si desea repetir el programa o otro numero si desea cerrarlo." + RESET);
 		int decisionUsuario = sc.nextInt();
 
 		return decisionUsuario == 1;
 	}
 	
 	// Los colores están copiados de internet
-	public static final String ANSI_RED = "\u001B[31m";
-	public static final String ANSI_GREEN = "\u001B[32m";
-	public static final String ANSI_BLUE = "\u001B[34m";
-	public static final String ANSI_RESET = "\u001B[0m";
+	public static final String ROJO = "\u001B[31m";
+	public static final String VERDE = "\u001B[32m";
+	public static final String AZUL = "\u001B[34m";
+	public static final String RESET = "\u001B[0m";
 
 }
