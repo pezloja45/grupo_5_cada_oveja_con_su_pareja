@@ -7,20 +7,21 @@ public class proyecto_ovejas {
 
 	public static void main(String[] args) {
 		var sc = new Scanner(System.in);
-		final char valorNull = 'z';
+
 		final char valorInicial = 'a';
+		final char valorNull = '▬';
+		
 		do {
 			System.out.println("Introduzca la dificultad (2, 4, 6)");
 			int dificultad = sc.nextInt();
 
-			// Este metodo valida si la dificultad introducida por el usuario es valida y si
-			// no pide otra
 			while (selectorDificultad(dificultad) == false) {
 				System.out.println("Dificultad no válida seleccione un valor válido (2, 4, 6)");
 				dificultad = sc.nextInt();
 			}
 
 			char[][] tablaResuelta = new char[dificultad][dificultad];
+			// Este bucle rellena el tablero oculto con el valor nulo que hemos especificado
 			for (int i = 0; i < tablaResuelta.length; i++) {
 				for (int k = 0; k < tablaResuelta.length; k++) {
 					tablaResuelta[i][k] = valorNull;
@@ -28,7 +29,7 @@ public class proyecto_ovejas {
 			}
 
 			char[][] matriz = new char[dificultad][dificultad];
-			// Este bucle asigna valores unicos por parejas a la matriz
+			// Este bucle asigna valores únicos por parejas a la matriz
 			for (int i = 0; i < dificultad; i++) {
 				for (int j = 0; j < dificultad; j += 2) {
 					char caracter = generarCaracterUnico(matriz, valorInicial);
@@ -37,7 +38,7 @@ public class proyecto_ovejas {
 				}
 			}
 
-			System.out.println("Matriz mezclada:");
+			System.out.println("Tablero:");
 			mezclarMatriz(matriz);
 			imprimirMatriz(matriz);
 			limpiaPantalla();
@@ -61,7 +62,7 @@ public class proyecto_ovejas {
 						|| (columnaCarta2 < 0 || columnaCarta2 >= dificultad))
 						|| ((columnaCarta1 == columnaCarta2) && (filaCarta1 == filaCarta2))) {
 
-					System.out.println("Las parejas introducidas no existen o son igaules");
+					System.out.println(ANSI_RED + "Las parejas introducidas no existen o son igaules" + ANSI_RESET);
 
 				} else {
 					if (comprobarCartas(columnaCarta1, columnaCarta2, filaCarta1, filaCarta2, matriz) == true) {
@@ -69,7 +70,7 @@ public class proyecto_ovejas {
 						tablaResuelta[filaCarta2][columnaCarta2] = matriz[filaCarta2][columnaCarta2];
 						imprimirMatriz(tablaResuelta);
 					} else {
-						System.out.println("No son pareja");
+						System.out.println(ANSI_RED + "No son pareja" + ANSI_RESET);
 					}
 				}
 
@@ -79,6 +80,7 @@ public class proyecto_ovejas {
 		sc.close();
 	}
 
+	// Este método mezcla las cartas del tablero
 	public static void mezclarMatriz(char[][] matriz) {
 		Random rand = new Random();
 		for (int i = matriz.length - 1; i > 0; i--) {
@@ -94,18 +96,17 @@ public class proyecto_ovejas {
 		}
 	}
 
-// Este metodo genera un caracter aleatorio de la a hasta
+	// Este método genera un caracter aleatorio de la 'a' a la 'z'
 	public static char generarCaracterUnico(char[][] matriz, char valorInicial) {
 		Random random = new Random();
 		char caracter;
 		do {
-			caracter = (char) (random.nextInt(25) + valorInicial);
+			caracter = (char) (random.nextInt(26) + valorInicial);
 		} while (existeCaracterEnMatriz(matriz, caracter));
 		return caracter;
 	}
 
-// Este metodo comprueba que el caracter generado en el metodo generarCaracter
-// no existe en la matriz
+	// Este método comprueba que el caracter generado en el método generarCaracter
 	public static boolean existeCaracterEnMatriz(char[][] matriz, char caracter) {
 		for (int i = 0; i < matriz.length; i++) {
 			for (int j = 0; j < matriz[i].length; j++) {
@@ -117,9 +118,8 @@ public class proyecto_ovejas {
 		return false;
 	}
 
-// Este metodo limpia la pantalla a base de lineas vacías con un bucle for
-// el metodo ha sido buscado por internet debido al desconocimiento de esta
-// funcion
+	// El método ha sido buscado por internet por el desconocimiento de esta función
+	// Este método limpia la pantalla a base de líneas vacías con un bucle for
 	public static void limpiaPantalla() {
 		try {
 			Thread.sleep(3000); // Espera durante 3 segundos
@@ -132,7 +132,7 @@ public class proyecto_ovejas {
 		}
 	}
 
-// Este metodo imprime la matriz de una forma bonita
+	// Este método imprime la matriz de forma bonita
 	public static void imprimirMatriz(char[][] matriz) {
 		System.out.println();
 		for (int i = 0; i < matriz.length; i++) {
@@ -144,12 +144,13 @@ public class proyecto_ovejas {
 		System.out.println();
 	}
 
+	// Este método comprueba que las cartas elegidas sean iguales
 	public static boolean comprobarCartas(int columnaCarta1, int columnaCarta2, int filaCarta1, int filaCarta2,
 			char[][] matriz) {
 		return matriz[filaCarta1][columnaCarta1] == matriz[filaCarta2][columnaCarta2];
 	}
 
-// Este metodo retorna true si el numero que le pides al usuario es 2, 4 o 6
+	// Este método devuelve true si el número que le pides al usuario es 2, 4 o 6
 	public static boolean selectorDificultad(int dificultad) {
 		return dificultad == 2 || dificultad == 4 || dificultad == 6;
 	}
@@ -165,13 +166,20 @@ public class proyecto_ovejas {
 		return false;
 	}
 
+	// Este método muestra un mensaje si el usuario acierta todas las parejas del tablero
 	public static boolean siguePrograma() {
 		var sc = new Scanner(System.in);
 
-		System.out.println("Ganaste, introduzca 1 si desea repetir el programa o otro numero si desea cerrarlo.");
+		System.out.println(ANSI_GREEN + "Ganaste, introduzca 1 si desea repetir el programa o otro numero si desea cerrarlo." + ANSI_RESET);
 		int decisionUsuario = sc.nextInt();
 
 		return decisionUsuario == 1;
 	}
+	
+	// Los colores están copiados de internet
+	public static final String ANSI_RED = "\u001B[31m";
+	public static final String ANSI_GREEN = "\u001B[32m";
+	public static final String ANSI_BLUE = "\u001B[34m";
+	public static final String ANSI_RESET = "\u001B[0m";
 
 }
