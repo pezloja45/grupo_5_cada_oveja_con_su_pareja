@@ -176,7 +176,7 @@ public class proyecto_ovejas {
 
 		System.out.println(VERDE + "Ganaste. Introduzca 1 si desea repetir el programa u otro número si desea cerrarlo." + RESET);
 		int decisionUsuario = sc.nextInt();
-
+		sc.close();
 		return decisionUsuario == 1;
 	}
 	
